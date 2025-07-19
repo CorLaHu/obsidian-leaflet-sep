@@ -752,7 +752,9 @@ export class LeafletRenderer extends MarkdownRenderChild {
         let markers: ImmutableMarker[] = [];
         for (let marker of this.params.marker ?? []) {
             /* type, lat, long, link, layer, */
-            const { data } = parseCSV<string>(marker);
+            const { data } = parseCSV<string>(marker, {
+                delimiter: this.plugin.data.csvDelimiter
+            });
             if (!data.length) {
                 new Notice("No data");
                 continue;
@@ -816,7 +818,9 @@ export class LeafletRenderer extends MarkdownRenderChild {
         }
         for (let marker of this.params.commandMarker ?? []) {
             /* type, lat, long, link, layer, */
-            const { data } = parseCSV<string>(marker);
+            const { data } = parseCSV<string>(marker, {
+                delimiter: this.plugin.data.csvDelimiter
+            });
             if (!data.length) {
                 new Notice(t("No data for marker %1.", marker));
                 continue;

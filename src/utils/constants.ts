@@ -101,7 +101,8 @@ export const DEFAULT_SETTINGS: ObsidianAppData = {
     defaultTile: DEFAULT_TILE_SERVER,
     defaultTileDark: DEFAULT_TILE_SERVER,
     defaultAttribution: DEFAULT_ATTRIBUTION,
-    defaultTileSubdomains: DEFAULT_TILE_SUBDOMAINS
+    defaultTileSubdomains: DEFAULT_TILE_SUBDOMAINS,
+    csvDelimiter: ","
 };
 export const BASE_POPUP_OPTIONS = {
     className: "leaflet-marker-link-popup",

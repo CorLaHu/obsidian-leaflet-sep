@@ -806,6 +806,8 @@ For new markers, Marker ID may be kept blank.
 
 Marker data in this format can then be re-imported. This feature is still under development and may not work as expected.
 
+The delimiter used when parsing and exporting marker CSV files can be changed in the plugin settings. The default is a comma (``,`). Changing this may break existing notes or CSV files that rely on comma separation.
+
 ### Default Marker Tooltip Behavior
 
 Setting this will cause marker tooltips to default to this behavior.

@@ -57,4 +57,5 @@ export interface ObsidianAppData {
     defaultTileSubdomains: string;
     defaultTileDark: string;
     defaultAttribution: string;
+    csvDelimiter: string;
 }

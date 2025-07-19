@@ -135,6 +135,9 @@ export default {
     "Export all marker data to a CSV file.":
         "Export all marker data to a CSV file.",
     Export: "Export",
+    "CSV Delimiter": "CSV Delimiter",
+    "Character used to separate values in CSV files. Changing this may break existing comma-delimited notes.":
+        "Character used to separate values in CSV files. Changing this may break existing comma-delimited notes.",
     "Enable Draw Mode by Default": "Enable Draw Mode by Default",
     "The draw control will be added to maps by default. Can be overridden with the draw map block parameter.":
         "The draw control will be added to maps by default. Can be overridden with the draw map block parameter.",

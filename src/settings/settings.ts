@@ -692,7 +692,9 @@ export class ObsidianLeafletSettingTab extends PluginSettingTab {
                 const csv = await files[0].text(),
                     markersToAdd: Map<string, SavedMarkerProperties[]> =
                         new Map(),
-                    parsed = parseCSV<string[]>(csv);
+                    parsed = parseCSV<string[]>(csv, {
+                        delimiter: this.plugin.data.csvDelimiter
+                    });
 
                 if (parsed.data && parsed.data.length) {
                     for (let i = 0; i < parsed.data.length; i++) {
@@ -844,7 +846,11 @@ export class ObsidianLeafletSettingTab extends PluginSettingTab {
                         }
                     }
 
-                    let csvFile = new Blob([unparseCSV(csv)], {
+                    let csvFile = new Blob([
+                        unparseCSV(csv, {
+                            delimiter: this.plugin.data.csvDelimiter
+                        })
+                    ], {
                         type: "text/csv"
                     });
                     let downloadLink = document.createElement("a");
@@ -854,6 +860,22 @@ export class ObsidianLeafletSettingTab extends PluginSettingTab {
                     document.body.appendChild(downloadLink);
                     downloadLink.click();
                     document.body.removeChild(downloadLink);
+                });
+            });
+
+        new Setting(containerEl)
+            .setName(t("CSV Delimiter"))
+            .setDesc(
+                t(
+                    "Character used to separate values in CSV files. Changing this may break existing comma-delimited notes."
+                )
+            )
+            .addText((text) => {
+                text.setPlaceholder(",");
+                text.setValue(this.plugin.data.csvDelimiter || ",");
+                text.onChange(async (v) => {
+                    this.plugin.data.csvDelimiter = v || ",";
+                    await this.plugin.saveSettings();
                 });
             });
     }

@@ -136,6 +136,9 @@ export default {
     "Export all marker data to a CSV file.":
         "将所有标记数据导出到 CSV 文件",
     Export: "导出",
+    "CSV Delimiter": "CSV 分隔符",
+    "Character used to separate values in CSV files. Changing this may break existing comma-delimited notes.":
+        "用于在 CSV 文件中分隔值的字符。更改后可能导致依赖逗号分隔的现有笔记或 CSV 文件无法正确解析。",
     "Enable Draw Mode by Default": "默认启用绘制模式",
     "The draw control will be added to maps by default. Can be overridden with the draw map block parameter.":
         "默认情况下，地图会显示绘制控件，可以使用在地图参数配置中自定义关闭控件显示",//TODO not undderstand this feature
